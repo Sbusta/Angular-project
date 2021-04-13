@@ -1,0 +1,23 @@
+<!-- <app-modal-view></app-modal-view>
+<app-toast-view></app-toast-view> -->
+
+<div
+  class="content"
+  infiniteScroll
+  [infiniteScrollDistance]="2"
+  [infiniteScrollThrottle]="50"
+  (scrolled)="loadPokemonsApi()"
+>
+  <div fxLayout="row wrap" fxLayoutGap="20px grid">
+    <div
+      fxFlex="20%"
+      fxFlex.xs="50%"
+      fxFlex.sm="33%"
+      fxFlex.md="25%"
+      *ngFor="let pokemon of pokemons"
+    >
+      <app-pokemon [pokemon]="pokemon" (click)="selectPokemon(pokemon)">
+      </app-pokemon>
+    </div>
+  </div>
+</div>
