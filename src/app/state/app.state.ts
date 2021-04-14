@@ -1,7 +1,5 @@
-import { PokemonState } from '../pokemon/state/pokemon.reducer';
+import {PokemonsState} from "../pokemons/state/pokemons.reducer"
 
-// Representation of the entire app state
-// Extended by lazy loaded modules
-export interface State {
-    // pokemon: PokemonState;
+export interface State{
+  pokemons: PokemonsState;
 }
