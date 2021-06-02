@@ -15,7 +15,7 @@ export class LocalstoreService {
   favorites = new BehaviorSubject(this.initialFavorites);
 
   constructor(private _snackBar: MatSnackBar) {
-    if (this.getFavorites.length === -1) {
+    if (Object.entries(this.getFavorites()).length === 0) {
       localStorage.setItem('favorites', JSON.stringify(this.initialFavorites));
       this.favorites = new BehaviorSubject(this.initialFavorites);
     } else {
@@ -23,7 +23,7 @@ export class LocalstoreService {
     }
   }
 
-  addFavorite(favorite: Favorite) {
+  addFavorite(favorite: Favorite): boolean {
     const temporalFavorites = this.getFavorites();
     if (temporalFavorites.length <= 4) {
       temporalFavorites.push(favorite);
@@ -43,7 +43,7 @@ export class LocalstoreService {
     }
   }
 
-  getFavorites() {
+  getFavorites(): Favorite[] {
     return JSON.parse(localStorage.getItem('favorites') || '{}');
   }
 
