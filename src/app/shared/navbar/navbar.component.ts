@@ -8,7 +8,15 @@ import * as PokemonsActions from '../../pokemons/state/pokemons.actions';
   styleUrls: ['./navbar.component.css']
 })
 export class NavbarComponent {
-
+  
+  links = [{
+    label: 'Home', path: 'home'
+  },
+  {
+    label: 'Pokemons', path: 'pokemons'
+  }];
+  activeLink = this.links[0];
+  
   constructor(private store: Store) { }
 
   private _filter = '';
@@ -26,11 +34,4 @@ export class NavbarComponent {
     }
   }
 
-  links = [{
-    label: 'Home', path: 'home'
-  },
-  {
-    label: 'Pokemons', path: 'pokemons'
-  }];
-  activeLink = this.links[0];
 }
